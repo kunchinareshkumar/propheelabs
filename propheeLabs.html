@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Prophee Labs delivers commercial electrical services and intelligent home automation for modern spaces.">
+  <title>Prophee Labs | Electrical & Home Automation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root { --ink:#050706; --paper:#ffffff; --acid:#20b15a; --muted:#738078; --line:#dce5df; --mono:'DM Mono',monospace; --sans:'Manrope',sans-serif; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); }
+    a { color:inherit; text-decoration:none; }
+    .wrap { width:min(1180px, calc(100% - 48px)); margin:auto; }
+    .mono { font:500 11px var(--mono); letter-spacing:.08em; text-transform:uppercase; }
+    .nav { position:fixed; inset:0 0 auto; z-index:20; padding:22px 0; color:#fff; transition:.3s; }
+    .nav.scrolled { background:rgba(5,7,6,.92); backdrop-filter:blur(18px); padding:12px 0; border-bottom:1px solid #27312b; }
+    .nav-inner { display:flex; align-items:center; justify-content:space-between; }
+    .brand { display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:-.05em; font-size:18px; }
+    .mark { display:grid; place-items:center; width:27px; height:27px; background:var(--acid); color:var(--ink); font-size:14px; transform:rotate(45deg); }
+    .mark i { transform:rotate(-45deg); }
+    .links { display:flex; align-items:center; gap:30px; font-size:13px; color:#c8cec4; }
+    .links a:hover { color:var(--acid); }
+    .nav-cta, .button { display:inline-flex; align-items:center; justify-content:center; gap:10px; border:0; background:var(--acid); color:var(--ink); padding:13px 19px; font-weight:800; font-size:12px; cursor:pointer; transition:.2s; }
+    .nav-cta:hover, .button:hover { background:#42d477; transform:translateY(-2px); }
+    .menu { display:none; background:none; border:0; color:#fff; font-size:20px; }
+    .hero { min-height:780px; height:100vh; color:#fff; background:#050706; display:flex; align-items:center; padding:110px 0 65px; position:relative; overflow:hidden; }
+    .hero:after { content:'PROPHEE / 2026'; position:absolute; right:34px; bottom:28px; color:#69756b; font:10px var(--mono); letter-spacing:.12em; }
+    .hero-content { position:relative; z-index:1; width:100%; display:grid; grid-template-columns:1fr .88fr; align-items:center; gap:8vw; }
+    .eyebrow { color:var(--acid); display:flex; align-items:center; gap:10px; margin-bottom:25px; }
+    .eyebrow:before { content:''; width:28px; height:1px; background:var(--acid); }
+    h1 { font-size:clamp(54px,8vw,112px); line-height:.88; letter-spacing:-.09em; max-width:680px; margin:0 0 32px; font-weight:800; }
+    h1 em { color:var(--acid); font-style:normal; }
+    .hero-bottom { display:flex; flex-direction:column; align-items:flex-start; gap:24px; }
+    .hero-copy { color:#cdd2c9; max-width:360px; font-size:15px; line-height:1.7; margin:0; }
+    .scroll-cue { color:#dce3d7; display:flex; gap:12px; align-items:center; border-bottom:1px solid #536158; padding-bottom:10px; }
+    .scroll-cue i { color:var(--acid); }
+    section { padding:125px 0; }
+    .section-head { display:flex; justify-content:space-between; gap:30px; align-items:flex-end; margin-bottom:58px; }
+    .section-title { font-size:clamp(38px,5vw,68px); line-height:.98; letter-spacing:-.07em; margin:16px 0 0; max-width:620px; }
+    .section-intro { color:#687067; line-height:1.7; max-width:300px; margin:0; }
+    .split { display:grid; grid-template-columns:1.08fr .92fr; gap:90px; align-items:center; }
+    .image-frame { position:relative; overflow:hidden; background:#1e251d; }
+    .image-frame img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .6s; }
+    .image-frame:hover img { transform:scale(1.04); }
+    .about-image { height:600px; }
+    .about-image:after { content:'EST. 2014'; position:absolute; bottom:24px; left:24px; color:#fff; font:11px var(--mono); letter-spacing:.1em; }
+    .about-copy h3 { font-size:clamp(27px,3vw,42px); letter-spacing:-.06em; line-height:1.08; margin:0 0 20px; }
+    .about-copy p { color:#697169; line-height:1.8; max-width:470px; }
+    .statline { border-top:1px solid var(--line); margin-top:38px; padding-top:18px; display:flex; gap:42px; }
+    .stat strong { display:block; font-size:30px; letter-spacing:-.06em; }
+    .stat span { color:#788178; font:10px var(--mono); text-transform:uppercase; }
+    .services { background:#eef7f1; position:relative; }
+    .services:before { content:'SERVICES'; position:absolute; top:42px; right:4vw; color:#d3e6d9; font:10px var(--mono); letter-spacing:.16em; writing-mode:vertical-rl; }
+    .service-list { border-top:1px solid #c8d9cd; }
+    .service { display:grid; grid-template-columns:70px 1fr 1.1fr 30px; gap:24px; align-items:center; padding:28px 18px; border-bottom:1px solid #c8d9cd; transition:.25s; }
+    .service:hover { padding-left:30px; background:#e2f1e7; }
+    .service-num { color:#7b867a; }
+    .service h3 { font-size:25px; letter-spacing:-.05em; margin:0; }
+    .service p { color:#647065; line-height:1.6; margin:0; font-size:13px; max-width:380px; }
+    .service i { font-size:20px; }
+    .projects { color:#fff; background:var(--ink); }
+    .projects .section-intro, .projects .eyebrow { color:#a9b0a5; }
+    .projects .eyebrow:before { background:var(--acid); }
+    .project-grid { display:grid; grid-template-columns:1.25fr .75fr; grid-template-rows:280px 280px; gap:16px; }
+    .project { position:relative; overflow:hidden; }
+    .project:first-child { grid-row:span 2; }
+    .project img { width:100%; height:100%; object-fit:cover; filter:saturate(.72); transition:.6s; }
+    .project:hover img { transform:scale(1.06); filter:saturate(1); }
+    .project:after { content:''; position:absolute; inset:35% 0 0; background:linear-gradient(transparent,rgba(0,0,0,.78)); }
+    .project-label { position:absolute; z-index:1; left:24px; bottom:23px; }
+    .project-label .mono { color:var(--acid); }
+    .project-label h3 { margin:7px 0 0; font-size:22px; letter-spacing:-.05em; }
+    .process { border-bottom:1px solid var(--line); }
+    .process-grid { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line); }
+    .step { padding:30px 30px 10px 0; border-right:1px solid var(--line); margin-right:30px; min-height:210px; }
+    .step:last-child { border:0; margin:0; }
+    .step-number { color:#9aa39a; font:12px var(--mono); }
+    .step h3 { margin:35px 0 13px; font-size:23px; letter-spacing:-.05em; }
+    .step p { color:#697269; font-size:13px; line-height:1.7; max-width:250px; }
+    .contact { background:var(--acid); padding:100px 0; position:relative; overflow:hidden; }
+    .contact:after { content:'LET\A S CONNECT'; white-space:pre; position:absolute; right:-12px; bottom:-34px; color:rgba(5,7,6,.09); font-size:clamp(80px,13vw,180px); font-weight:800; letter-spacing:-.1em; line-height:.72; pointer-events:none; }
+    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:100px; align-items:start; }
+    .contact h2 { font-size:clamp(48px,6vw,82px); line-height:.92; letter-spacing:-.09em; margin:16px 0 25px; }
+    .contact-copy { color:#58634e; max-width:370px; line-height:1.7; }
+    form { background:#fff; padding:34px; }
+    label { display:block; font:10px var(--mono); text-transform:uppercase; color:#71806b; margin:0 0 8px; }
+    input, select, textarea { width:100%; border:0; border-bottom:1px solid #d7ddd3; padding:11px 0 13px; margin-bottom:23px; font:14px var(--sans); background:transparent; outline:none; color:var(--ink); }
+    input:focus, select:focus, textarea:focus { border-color:var(--acid); }
+    textarea { min-height:75px; resize:vertical; }
+    .form-note { color:#7b8578; font:10px var(--mono); margin:17px 0 0; }
+    footer { background:var(--ink); color:#9da79b; padding:32px 0; }
+    .footer-inner { display:flex; justify-content:space-between; align-items:center; gap:20px; }
+    footer .brand { color:#fff; }
+    .socials { display:flex; gap:20px; }
+    .socials a:hover { color:var(--acid); }
+    .reveal { opacity:0; transform:translateY(24px); transition:opacity .7s ease,transform .7s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+    .hero-visual { position:relative; height:min(560px, 65vh); min-height:410px; background:url('https://images.unsplash.com/photo-1558008258-3256797b43f3?q=85&w=1200&auto=format&fit=crop') center/cover; border:1px solid #39453d; }
+    .hero-visual:before { content:''; position:absolute; inset:14px; border:1px solid rgba(255,255,255,.2); }
+    .hero-visual:after { content:'SMART\A SPACES'; white-space:pre; position:absolute; left:22px; bottom:20px; color:#fff; font:500 11px var(--mono); letter-spacing:.12em; line-height:1.55; }
+    .hero-badge { position:absolute; top:24px; right:24px; width:112px; height:112px; display:grid; place-items:center; border-radius:50%; background:var(--acid); color:var(--ink); font:500 10px var(--mono); text-align:center; line-height:1.4; z-index:1; }
+    .hero-badge i { display:block; font-size:21px; margin-bottom:5px; }
+    .hero-metric { position:absolute; right:-18px; bottom:34px; z-index:2; background:#fff; color:var(--ink); padding:17px 20px; min-width:160px; box-shadow:12px 12px 0 var(--acid); }
+    .hero-metric strong { display:block; font-size:28px; letter-spacing:-.07em; }
+    .hero-metric span { color:#677369; font:10px var(--mono); text-transform:uppercase; }
+    @media (max-width:760px) {
+      .wrap { width:min(100% - 34px,1180px); }
+      .links, .nav-cta { display:none; } .menu { display:block; }
+      .links.mobile-open { display:flex; position:absolute; top:58px; left:17px; right:17px; padding:20px; flex-direction:column; align-items:flex-start; gap:18px; background:rgba(5,7,6,.97); border:1px solid #27312b; }
+      .hero { min-height:850px; height:auto; padding:110px 0 80px; }
+      .hero-content { grid-template-columns:1fr; gap:48px; }
+      .hero-visual { height:390px; min-height:0; }
+      .hero-metric { right:12px; bottom:20px; }
+      .hero-bottom, .section-head, .footer-inner { align-items:flex-start; flex-direction:column; }
+      section { padding:82px 0; }
+      .split, .contact-grid { grid-template-columns:1fr; gap:45px; }
+      .about-image { height:430px; }
+      .service { grid-template-columns:38px 1fr 22px; gap:12px; padding-left:0; padding-right:0; } .service p { display:none; }
+      .service h3 { font-size:20px; }
+      .project-grid { grid-template-columns:1fr; grid-template-rows:280px 200px 200px; } .project:first-child { grid-row:auto; }
+      .process-grid { grid-template-columns:1fr; }
+      .step { border-right:0; border-bottom:1px solid var(--line); margin:0; min-height:auto; padding:25px 0; }
+      .step h3 { margin:20px 0 8px; }
+      form { padding:24px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" id="nav"><div class="wrap nav-inner"><a class="brand" href="#top"><span class="mark"><i class="fa-solid fa-bolt"></i></span>PROPHEE LABS</a><div class="links"><a href="#about">Studio</a><a href="#services">Capabilities</a><a href="#work">Selected work</a><a href="#contact">Contact</a></div><a class="nav-cta" href="#contact">Start a project <i class="fa-solid fa-arrow-up-right-from-square"></i></a><button class="menu" aria-label="Open navigation"><i class="fa-solid fa-bars"></i></button></div></nav>
+  <main id="top">
+    <section class="hero"><div class="wrap hero-content"><div><div class="eyebrow mono">Electrical + automation / 01—04</div><h1>Power,<br><em>made smarter.</em></h1><div class="hero-bottom"><p class="hero-copy">We deliver dependable commercial electrical systems and seamless home automation for spaces that work beautifully every day.</p><div class="scroll-cue mono"><i class="fa-solid fa-arrow-down"></i> Explore our services</div></div></div><div class="hero-visual"><div class="hero-badge"><span><i class="fa-solid fa-bolt"></i>SMART<br>BY DESIGN</span></div><div class="hero-metric"><strong>500+</strong><span>Systems delivered</span></div></div></div></section>
+    <section id="about"><div class="wrap split"><div class="image-frame about-image reveal"><img src="https://images.unsplash.com/photo-1581092921461-eab62e97a782?q=85&w=1400&auto=format&fit=crop" alt="Electrical technician working on a control system"></div><div class="about-copy reveal"><div class="eyebrow mono">Who we are / 02</div><h3>Reliable power. Intelligent living.</h3><p>Prophee Labs brings electrical expertise and smart technology together. We help businesses stay powered and productive, while giving homeowners effortless control over lighting, security, comfort and energy.</p><a href="#contact" class="button">Plan your system <i class="fa-solid fa-arrow-right"></i></a><div class="statline"><div class="stat"><strong>10+</strong><span>Years in the field</span></div><div class="stat"><strong>500</strong><span>Projects delivered</span></div><div class="stat"><strong>24/7</strong><span>Support when needed</span></div></div></div></div></section>
+    <section class="services" id="services"><div class="wrap"><div class="section-head reveal"><div><div class="eyebrow mono">What we do / 03</div><h2 class="section-title">Systems that work harder.</h2></div><p class="section-intro">From a new commercial fit-out to a fully connected home, we design, install and support the systems behind modern life.</p></div><div class="service-list reveal"><a class="service" href="#contact"><span class="service-num mono">01</span><h3>Commercial electrical</h3><p>Power distribution, wiring, lighting and fit-outs built for safe, uninterrupted business operations.</p><i class="fa-solid fa-arrow-up-right-from-square"></i></a><a class="service" href="#contact"><span class="service-num mono">02</span><h3>Home automation</h3><p>One-touch control for lighting, climate, entertainment, curtains and everyday comfort.</p><i class="fa-solid fa-arrow-up-right-from-square"></i></a><a class="service" href="#contact"><span class="service-num mono">03</span><h3>Security & access</h3><p>Connected cameras, video doorbells, smart locks and access control for complete peace of mind.</p><i class="fa-solid fa-arrow-up-right-from-square"></i></a><a class="service" href="#contact"><span class="service-num mono">04</span><h3>Maintenance & support</h3><p>Inspections, troubleshooting and responsive care that keeps every system performing.</p><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div></section>
+    <section class="projects" id="work"><div class="wrap"><div class="section-head reveal"><div><div class="eyebrow mono">Selected work / 04</div><h2 class="section-title">Power, with purpose.</h2></div><p class="section-intro">From intelligent homes to high-performing workplaces, we make the technology feel natural.</p></div><div class="project-grid reveal"><article class="project"><img src="https://images.unsplash.com/photo-1558002038-1055907df827?q=85&w=1400&auto=format&fit=crop" alt="Smart home interior with connected lighting"><div class="project-label"><div class="mono">Home automation / Bengaluru</div><h3>House of light</h3></div></article><article class="project"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=85&w=1000&auto=format&fit=crop" alt="Modern commercial office interior"><div class="project-label"><div class="mono">Commercial electrical / Mumbai</div><h3>Work, uninterrupted</h3></div></article><article class="project"><img src="https://images.unsplash.com/photo-1565514020179-026b92b84bb6?q=85&w=1000&auto=format&fit=crop" alt="Electrical control panel installation"><div class="project-label"><div class="mono">Power systems / Pune</div><h3>Built to perform</h3></div></article></div></div></section>
+    <section class="process"><div class="wrap"><div class="section-head reveal"><div><div class="eyebrow mono">How we work</div><h2 class="section-title">Clear from first sketch.</h2></div><p class="section-intro">No mystery, no handoffs into the void. Just a practical process and a team that stays close.</p></div><div class="process-grid reveal"><div class="step"><span class="step-number">01 / LISTEN</span><h3>Understand the brief</h3><p>We learn how your space needs to behave before we draw a single line.</p></div><div class="step"><span class="step-number">02 / MAKE</span><h3>Design the system</h3><p>We translate the ambition into a robust, coordinated and buildable plan.</p></div><div class="step"><span class="step-number">03 / DELIVER</span><h3>Bring it to life</h3><p>We install, test and hand over a system you can rely on every day.</p></div></div></div></section>
+    <section class="contact" id="contact"><div class="wrap contact-grid"><div class="reveal"><div class="eyebrow mono">Start a conversation</div><h2>Let's build<br>what's next.</h2><p class="contact-copy">Planning a commercial electrical project or ready to make your home smarter? Tell us what you need and our team will reply within one working day.</p><p class="mono" style="margin-top:35px">hello@propheelabs.com<br>+91 98765 43210</p></div><form class="reveal" id="quote-form"><label for="name">Your name</label><input id="name" type="text" placeholder="Jane Smith" required><label for="email">Email address</label><input id="email" type="email" placeholder="jane@company.com" required><label for="project">Tell us about the project</label><textarea id="project" placeholder="Commercial electrical, home automation, security or something else..." required></textarea><button class="button" type="submit">Request a consultation <i class="fa-solid fa-arrow-right"></i></button><p class="form-note" id="form-note">We respect your inbox. No automated follow-ups.</p></form></div></section>
+  </main>
+  <footer><div class="wrap footer-inner"><a class="brand" href="#top"><span class="mark"><i class="fa-solid fa-bolt"></i></span>PROPHEE LABS</a><span class="mono">© 2026 Prophee Labs / All systems go</span><div class="socials"><a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="#contact" aria-label="Email"><i class="fa-regular fa-envelope"></i></a></div></div></footer>
+  <script>
+    const nav = document.querySelector('#nav');
+    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('visible')), { threshold: .14 });
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 24), { passive: true });
+    document.querySelector('.menu').addEventListener('click', () => document.querySelector('.links').classList.toggle('mobile-open'));
+    document.querySelector('#quote-form').addEventListener('submit', (event) => { event.preventDefault(); document.querySelector('#form-note').textContent = 'Thanks. Your enquiry is with the studio now.'; event.target.reset(); });
+  </script>
+</body>
+</html>
